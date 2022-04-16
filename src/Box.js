@@ -2,9 +2,16 @@ import React, {Component} from "react";
 import "./styles/Box.css"
 
 class Box extends Component{
+    static defaultProps = {
+        colors: ['maroon', 'silver', 'gray', 'white', 'red', 'purple', 'fuchsia', 'green', 'lime', 'olive', 'yellow', 'navy', 'blue', 'teal', 'aqua', 'orange']
+    }
+
     constructor(props){
         super(props);
         this.changeColor = this.changeColor.bind(this);
+        this.state = {
+            backgroundColor: this.props.color
+        }
     }
 
     changeColor(eventObj){
@@ -12,7 +19,11 @@ class Box extends Component{
             return color !== eventObj.target.style.backgroundColor;
         });
         const pickColor = newColors[Math.floor(Math.random() * newColors.length)];
-        eventObj.target.style.backgroundColor = pickColor;
+        this.setState(function(currentState){
+            return {
+                backgroundColor: pickColor
+            }
+        })
         
     }
     render(){
@@ -20,7 +31,7 @@ class Box extends Component{
             <div
                 onClick = {this.changeColor} 
                 className = "Box" 
-                style={{backgroundColor: this.props.color}}>
+                style={{backgroundColor: this.state.backgroundColor}}>
             </div>
         )
     }
