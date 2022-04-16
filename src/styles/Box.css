@@ -1,0 +1,10 @@
+.Box{
+    height: 100px;
+    width: 100px;
+    margin: 0.1rem;
+}
+
+.Box:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}

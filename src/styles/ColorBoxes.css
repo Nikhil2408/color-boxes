@@ -1,0 +1,11 @@
+.ColorBoxes{
+    display: flex;
+    flex-direction: column;
+}
+
+.ColorBoxes-boxes-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+}
